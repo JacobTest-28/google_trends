@@ -1,6 +1,6 @@
 exports.handler =  async function (event) {
 
-
+console.log("hi I am in func")
     const googleTrends = require('google-trends-api');
     const array = ['red hat', 'blue ball'];
 
