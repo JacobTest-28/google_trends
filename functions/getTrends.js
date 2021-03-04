@@ -1,9 +1,9 @@
-exports.handler =  async function (event) {
-    let result='';
+exports.handler = async function (event) {
+    let result = '';
     const query = event.queryStringParameters
     console.log(query['bob'])
     console.log(typeof query['bob'])
-console.log("hi I am in func")
+    console.log("hi I am in func")
     const googleTrends = require('google-trends-api');
     const array = ['red hat', 'blue ball'];
     let lastYearToday = new Date();
@@ -11,20 +11,20 @@ console.log("hi I am in func")
     lastYearToday.setFullYear(pastYear);
     console.log(lastYearToday.toLocaleDateString());
 
-    googleTrends.interestOverTime({
+  await  googleTrends.interestOverTime({
         keyword: array,
         startTime: lastYearToday, geo: 'US'
     })
-        .then(function (results) {
+       .then(  async function (results) {
             console.log('These results are awesome', results);
-result= results
+           result =   results
 
 
         }).catch(function (err) {
         console.error('Oh no there was an error', err);
     });
-    return{
+    return  {
         statusCode: 200,
-        body: result
+        body:   result
     }
 }
