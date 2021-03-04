@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
 
-          <button onClick={()=> {fetch(".netlify/functions/getTrends?bob=[hi,by]", {
+          <button onClick={()=> {fetch(".netlify/functions/getTrends?bob=hi,by", {
               method: 'POST', headers: {
                   'Content-Type': 'application/json'
 
