@@ -1,5 +1,7 @@
 exports.handler =  async function (event) {
-
+    const query = event.queryStringParameters
+    console.log(query['bob'])
+    console.log(typeof query['bob'])
 console.log("hi I am in func")
     const googleTrends = require('google-trends-api');
     const array = ['red hat', 'blue ball'];
@@ -14,9 +16,14 @@ console.log("hi I am in func")
     })
         .then(function (results) {
             console.log('These results are awesome', results);
-
+let result= results
+            return{
+                statusCode: 200,
+                body: result
+            }
 
         }).catch(function (err) {
         console.error('Oh no there was an error', err);
     });
+
 }
